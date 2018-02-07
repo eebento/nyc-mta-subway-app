@@ -1,0 +1,35 @@
+{
+  "name": "nyc-mta-subway-app",
+  "description": "Simple app that shows NYC MTA subway stops on a map.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eebento/nyc-mta-subway-app.git"
+  },
+  "engines": {
+    "node": ">=7.x.x"
+  },
+  "private": false,
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "start": "node ./bin/www",
+    "server": "nodemon ./bin/www",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5",
+    "swagger": "^0.7.5",
+    "swagger-ui-express": "^2.0.15"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.14.12"
+  }
+}

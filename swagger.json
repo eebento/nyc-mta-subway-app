@@ -1,0 +1,95 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "NYC MTA subway API",
+    "description": "API documentation",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3001",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "NYC MTA Stops",
+      "description": "NYC MTA Stop listing"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/gtfs/stops": {
+      "get": {
+        "tags": [
+          "Stops"
+        ],
+        "summary": "Get all MTA subway stops",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Stops"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Stop": {
+      "required": [
+        "stop_id",
+        "stop_lat",
+        "stop_lon"
+      ],
+      "properties": {
+        "stop_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "stop_code": {
+          "type": "string"
+        },
+        "stop_name": {
+          "type": "string"
+        },
+        "stop_desc": {
+          "type": "string"
+        },
+        "stop_lat": {
+          "type": "number",
+          "format": "float"
+        },
+        "stop_lon": {
+          "type": "number",
+          "format": "float"
+        },
+        "zone_id": {
+          "type": "string"
+        },
+        "stop_url": {
+          "type": "string"
+        },
+        "location_type": {
+          "type": "string"
+        },
+        "parent_station": {
+          "type": "string"
+        }
+      }
+    },
+    "Stops": {
+      "type": "array",
+      "$ref": "#/definitions/Stop"
+    }
+  }
+}

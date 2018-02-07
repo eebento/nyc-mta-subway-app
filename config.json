@@ -1,0 +1,5 @@
+{
+  "gtfs": {
+    "path": "/data/gtfs/nyc-mta"
+  }
+}
