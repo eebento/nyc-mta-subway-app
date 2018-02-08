@@ -13,7 +13,7 @@ router.get('/stops', async (req, res, next) => {
     res.json(stops);
 
   } catch (e) {
-    res.send(404, 'Not found');
+    res.status(404).send('Not found')
   }
 
 });

@@ -35,13 +35,23 @@ async function parseGTFSFile(filename) {
   const mapLineToObject = line => {
 
     const lineValues = line.split(',');
-    const geoPoint = {};
+    const geoPoint = { position: {} };
 
+    // if the number of values doesn't match with the number of headers,
+    // just skip the line
     if (lineValues.length !== headers.length)
       return null;
 
+    // pair the value with the corresponding key
+    // if the value is lat/long, parse to float
     headers.forEach((header, i) => {
-      geoPoint[header] = header === 'stop_lat' || header === 'stop_lon' ? parseFloat(lineValues[i]) : lineValues[i];
+      if (header === 'stop_lat') {
+        geoPoint.position.lat = parseFloat(lineValues[i]);
+      } else if (header === 'stop_lon') {
+        geoPoint.position.lon = parseFloat(lineValues[i]);
+      } else {
+        geoPoint[header] = lineValues[i];
+      }
     });
 
     return geoPoint;
