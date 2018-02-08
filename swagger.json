@@ -32,7 +32,7 @@
         "tags": [
           "Stops"
         ],
-        "summary": "Get all MTA subway stops",
+        "summary": "Get all MTA Subway stops in an array of object",
         "responses": {
           "200": {
             "description": "OK",
@@ -48,8 +48,7 @@
     "Stop": {
       "required": [
         "stop_id",
-        "stop_lat",
-        "stop_lon"
+        "position"
       ],
       "properties": {
         "stop_id": {
@@ -65,13 +64,9 @@
         "stop_desc": {
           "type": "string"
         },
-        "stop_lat": {
-          "type": "number",
-          "format": "float"
-        },
-        "stop_lon": {
-          "type": "number",
-          "format": "float"
+        "position": {
+          "type": "object",
+          "$ref": "#/definitions/Position"
         },
         "zone_id": {
           "type": "string"
@@ -90,6 +85,22 @@
     "Stops": {
       "type": "array",
       "$ref": "#/definitions/Stop"
+    },
+    "Position": {
+      "required": [
+        "lat",
+        "lon"
+      ],
+      "properties": {
+        "lat": {
+          "type": "number",
+          "format": "float"
+        },
+        "lon": {
+          "type": "number",
+          "format": "float"
+        }
+      }
     }
   }
 }
