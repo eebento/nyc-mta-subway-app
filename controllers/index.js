@@ -10,9 +10,9 @@ const
 // GTFS router
 router.use('/gtfs', gtfs);
 
-// Default router
+// Default router redirect to API doc
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.redirect('/api-docs');
 });
 
 module.exports = router;

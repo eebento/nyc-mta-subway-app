@@ -27,6 +27,11 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Load main controller
 app.use('/api/v1', controller);
 
+// Default route
+app.use('/', function (req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   let err = new Error('Not Found');
