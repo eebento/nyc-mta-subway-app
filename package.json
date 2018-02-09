@@ -15,7 +15,8 @@
     "start": "node ./bin/www",
     "server": "nodemon ./bin/www",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "mocha \"test/**/*.js\" --exit"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -29,7 +30,10 @@
     "swagger-ui-express": "^2.0.15"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "concurrently": "^3.5.1",
+    "mocha": "^5.0.0",
     "nodemon": "^1.14.12"
   }
 }

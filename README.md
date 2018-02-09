@@ -37,6 +37,11 @@ $ cd client
 $ npm start
 ```
 
+Run unit test
+```
+$ npm test
+```
+
 ## URLs
 
 Server: http://localhost:3001
